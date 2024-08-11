@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import TaskCard from './components/TaskCard';
+import TaskColumn from './components/TaskColumn';
+import AddTask from './components/AddTask';
 
 function App() {
+
+  const addTask = () => {
+    showAddTask ? setShowAddTask(false) : setShowAddTask(true);
+    // console.log(showAddTask)
+  }
+
+  const addTaskData = () => {
+
+  }
+
+  const [showAddTask, setShowAddTask] = useState(false);
+
+  const myTasks = [
+    { head: "Heading 1", task: "task 1" },
+    { head: "Heading 2", task: "task 2" }
+  ];
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <TaskColumn myTasks={myTasks} />
+        <AddTask visibility={showAddTask ? true : false} addTaskData={addTaskData} />
+        <button className='ui button red' onClick={addTask}>+</button>
+      </div>
+    </>
   );
 }
 

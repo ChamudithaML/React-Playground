@@ -1,8 +1,8 @@
 import React from 'react'
 import TaskCard from './TaskCard';
 
+// myTasks is array containing task objects
 const TaskColumn = ({ myTasks }) => {
-
     return (
         <div>
             {myTasks.map((item, index) => (

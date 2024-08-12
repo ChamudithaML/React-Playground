@@ -15,12 +15,10 @@ function App() {
 
   return (
     <>
-      { }
+      { taskRow.length>0 && taskRow.map((row) => row)}
       <button onClick={addTaskRow}>Add Task Column</button>     
     </>
   );
 }
 
 export default App;
-
-// <TaskRow topic={topic} myTasks={myTasks} showAddTask={showAddTask} addTaskData={addTaskData} isAddTask={isAddTask} />

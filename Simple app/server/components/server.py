@@ -10,7 +10,7 @@ def cats():
 
 @app.route('/games')
 def games():
-    return jsonify(get_games)
+    return jsonify(get_games())
 
 @app.route('/movies')
 def movies():

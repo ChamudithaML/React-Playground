@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-function Cat({cat}) {
+function Cat() {
+
+  const [data, setData] = useState({});
+
+  console.log(data.cats);
+
+  useEffect(() => {
+    fetch("/cats")
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
   return (
-    <p className="p-3 bg-light text-dark rounded border ms-3">{cat}</p>
+    <div>
+      {data.cats ? data.cats.map(
+        (cat, index) => <p key={index}>{cat}</p>
+      ) : <p>Loading...</p>}
+    </div>
   )
 }
 

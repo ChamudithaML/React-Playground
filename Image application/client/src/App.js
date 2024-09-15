@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import './App.css'
 
 function App() {
     const [file, setFile] = useState(null);
@@ -22,9 +24,22 @@ function App() {
     };
 
     return (
-        <div className="App">
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
+        <div className='main-container'>
+            <div className="d-flex flex-column align-items-center mt-3">
+                <h1>Image Upload</h1>
+                <p>This project is for practicing image uploading to a server and saving the image on the server using Python</p>
+                <input
+                    type="file"
+                    className="form-control mb-3 w-50 mt-3"
+                    onChange={handleFileChange}
+                />
+                <button
+                    className="btn btn-primary w-50"
+                    onClick={handleUpload}
+                >
+                    Upload
+                </button>
+            </div>
         </div>
     );
 }
